@@ -1,15 +1,14 @@
 import axios from "axios";
-import jsCookie from "js-cookie";
 import { root } from './endPoints';
 
-export const cookies = jsCookie;
+const token = "" // your token code
 
 const requestIntercepter = (instance, isAuthendicated, headers) => {
   instance.interceptors.request.use(
     function (config) {
       if (isAuthendicated) {
         config.headers = {
-          Authorization: cookies.get(""),
+          Authorization: token,
           ...headers
         }
       }
